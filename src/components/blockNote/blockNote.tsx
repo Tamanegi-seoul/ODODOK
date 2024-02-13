@@ -53,7 +53,7 @@ export default function Editor() {
   });
   return (
     <div>
-      <div class="blockNoteWrapper">
+      <div className="blockNoteWrapper">
         <BlockNoteView editor={editor} theme={"light"}></BlockNoteView>
       </div>
     </div>

@@ -1,0 +1,11 @@
+.home {
+  &__menu {
+    display: flex;
+    gap: 20px;
+  }
+  &__title {
+  }
+  &__disc {
+    color: rgb(174, 174, 174);
+  }
+}
