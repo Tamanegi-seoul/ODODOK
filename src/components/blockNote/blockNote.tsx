@@ -1,4 +1,5 @@
 import { Block, BlockNoteEditor, PartialBlock } from "@blocknote/core";
+import { useState } from "react";
 import {
   BlockNoteView,
   useBlockNote,
@@ -48,13 +49,37 @@ const customSlashMenuItemList = [
 ];
 
 export default function Editor() {
+  const [markdown, setMarkdown] = useState<string>("");
+  const [html, setHTML] = useState<string>("");
   const editor: BlockNoteEditor = useBlockNote({
     slashMenuItems: customSlashMenuItemList,
+   
+    // Listens for when the editor's contents change.
+    onEditorContentChange: (editor) => {
+      
+      // MarkDown
+      const saveBlocksAsMarkdown = async () => {
+        const markdown: string =
+          await editor.blocksToMarkdownLossy(editor.topLevelBlocks);
+        setMarkdown(markdown);
+      };
+      saveBlocksAsMarkdown();
+
+      // HTML
+      const saveBlocksAsHTML = async () => {
+        const html: string = await editor.blocksToHTMLLossy(editor.topLevelBlocks);
+        setHTML(html);
+      };
+      saveBlocksAsHTML();
+
+    }
   });
   return (
     <div>
       <div className="blockNoteWrapper">
         <BlockNoteView editor={editor} theme={"light"}></BlockNoteView>
+        <pre>{markdown}</pre>
+        <pre>{html}</pre>
       </div>
     </div>
   );
