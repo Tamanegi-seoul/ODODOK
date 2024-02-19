@@ -1,4 +1,5 @@
 import { Block, BlockNoteEditor, PartialBlock } from "@blocknote/core";
+import { useEffect, useState } from "react";
 import {
   BlockNoteView,
   useBlockNote,
@@ -48,13 +49,51 @@ const customSlashMenuItemList = [
 ];
 
 export default function Editor() {
+  const [markdown, setMarkdown] = useState<string>("");
+  const [html, setHTML] = useState<string>("");
+  const [blocks, setBlocks] = useState<Block[] | null>(null);
+
   const editor: BlockNoteEditor = useBlockNote({
     slashMenuItems: customSlashMenuItemList,
+   
+    // Listens for when the editor's contents change.
+    onEditorContentChange: (editor) => {
+      // console.log(editor.getJSON());
+
+      setBlocks(editor.topLevelBlocks);
+
+      // MarkDown
+      const saveBlocksAsMarkdown = async () => {
+        const markdown: string =
+          await editor.blocksToMarkdownLossy(editor.topLevelBlocks);
+        setMarkdown(markdown);
+      };
+      saveBlocksAsMarkdown();
+
+      // HTML
+      const saveBlocksAsHTML = async () => {
+        const html: string = await editor.blocksToHTMLLossy(editor.topLevelBlocks);
+        setHTML(html);
+      };
+      saveBlocksAsHTML();
+
+    }
   });
+
+  // useEffect를 사용하여 blocks 상태가 변경될 때마다 실행되도록 설정
+  useEffect(() => {
+    // blocks가 변경될 때의 추가 작업을 수행
+    console.log("Blocks updated:", blocks);
+  }, [blocks]); // blocks 상태가 변경될 때마다 useEffect가 실행되도록 함
+  
+
   return (
     <div>
       <div className="blockNoteWrapper">
         <BlockNoteView editor={editor} theme={"light"}></BlockNoteView>
+        {/* <p>{markdown}</p> */}
+        {/* <p>{html}</p> */}
+        <pre>{JSON.stringify(blocks, null, 2)}</pre>
       </div>
     </div>
   );
