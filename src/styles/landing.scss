@@ -1,0 +1,8 @@
+.landingPage {
+  // min-width: 1000px;
+  text-align: center;
+  &__router-link {
+    display: flex;
+    gap: 20px;
+  }
+}
