@@ -57,7 +57,7 @@ export default function Editor() {
     slashMenuItems: customSlashMenuItemList,
    
     // Listens for when the editor's contents change.
-    onEditorContentChange: (editor) => {
+    onEditorContentChange: (editor: any) => {
       // console.log(editor.getJSON());
 
       setBlocks(editor.topLevelBlocks);
