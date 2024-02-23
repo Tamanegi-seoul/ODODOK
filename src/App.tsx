@@ -1,13 +1,13 @@
 // import "./App.css";
-import "./app.scss";
-import { Routes, Route } from "react-router-dom";
-import Landing from "./pages/landing";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Write from "./pages/Write";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import convert from "xml-js";
+import './app.scss';
+import { Routes, Route } from 'react-router-dom';
+import Landing from './pages/landing';
+import Home from './pages/Home';
+import About from './pages/About';
+import Write from './pages/Write';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import convert from 'xml-js';
 
 function App() {
   const [data, setData] = useState([]);
@@ -35,7 +35,7 @@ function App() {
 
   // console.log("result", data);
   const bookList: object = data.response;
-  console.log("책 리스트", bookList);
+  console.log('책 리스트', bookList);
 
   return (
     <Routes>
