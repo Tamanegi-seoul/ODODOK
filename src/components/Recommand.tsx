@@ -1,7 +1,7 @@
 const Recommand = ({ bookList }) => {
-  console.log("추천도서 리스트", bookList);
+  console.log('추천도서 리스트', bookList);
   function Book({ book }) {
-    console.log("첫번째 도서", book);
+    console.log('첫번째 도서', book);
     return (
       <div>
         <span>{book.no._text}</span>

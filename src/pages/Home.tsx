@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import Recommand from "../components/Recommand";
-import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import Recommand from '../components/Recommand';
+import { useEffect } from 'react';
 
 export default function Home(props: object) {
   // console.log("bookList", props.bookList);
-  const bookList = props.bookList?.docs.doc;
-  console.log("bookList", bookList);
+  // const bookList = props.bookList?.docs.doc;
+  // console.log("bookList", bookList);
   return (
     <div className="home">
       {/* 메뉴 */}
@@ -22,7 +22,7 @@ export default function Home(props: object) {
       {/* 컨텐츠 */}
 
       {/* 추천도서 */}
-      <Recommand bookList={bookList} />
+      {/* <Recommand bookList={bookList} /> */}
     </div>
   );
 }
