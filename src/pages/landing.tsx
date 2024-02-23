@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const landing = () => {
   return (
@@ -10,6 +10,9 @@ const landing = () => {
         </li>
         <li>
           <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/write">Write</Link>
         </li>
       </ul>
     </div>
