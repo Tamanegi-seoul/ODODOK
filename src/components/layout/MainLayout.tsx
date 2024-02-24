@@ -1,14 +1,12 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
+import SideBar from '@/components/layout/Sidebar';
+import ContentsLayout from './ContentsLayout';
+import styles from '@/styles/modules/mainLayout.module.scss';
 
 const MainLayout = () => {
   return (
-    <div>
-      <Header></Header>
-      <Outlet />
-      <Footer></Footer>
+    <div className={styles.mainLayout}>
+      <SideBar />
+      <ContentsLayout />
     </div>
   );
 };
