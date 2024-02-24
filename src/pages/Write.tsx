@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import Editor from '../components/blockNote/blockNote';
+// import Editor from '@/components/blockNote/blockNote';
+import Editor from '../components/blockNote/BlockNote';
 // import EditorComponent from "../components/editorJS/EditorComponent";
 
 export default function Write() {
@@ -11,9 +12,6 @@ export default function Write() {
 
       {/* blockNote 에디터 */}
       <Editor />
-
-      {/* editor js 에디터 */}
-      {/* <EditorComponent /> */}
     </div>
   );
 }
