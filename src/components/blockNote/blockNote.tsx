@@ -1,4 +1,9 @@
-import { Block, BlockNoteEditor, PartialBlock } from '@blocknote/core';
+import {
+  Block,
+  BlockNoteEditor,
+  PartialBlock,
+  uploadToTmpFilesDotOrg_DEV_ONLY,
+} from '@blocknote/core';
 import { useEffect, useState } from 'react';
 import {
   BlockNoteView,
@@ -55,6 +60,7 @@ export default function Editor() {
 
   const editor: BlockNoteEditor = useBlockNote({
     slashMenuItems: customSlashMenuItemList,
+    uploadFile: uploadToTmpFilesDotOrg_DEV_ONLY,
 
     // Listens for when the editor's contents change.
     onEditorContentChange: (editor: any) => {

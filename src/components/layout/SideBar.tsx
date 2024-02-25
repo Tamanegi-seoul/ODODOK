@@ -1,5 +1,3 @@
-import { NONAME } from 'dns';
-import React from 'react';
 import { useState } from 'react';
 import {
   Menu,
