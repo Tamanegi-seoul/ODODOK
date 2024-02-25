@@ -1,3 +1,4 @@
+import { NONAME } from 'dns';
 import React from 'react';
 import { useState } from 'react';
 import {
@@ -12,6 +13,16 @@ import { Link } from 'react-router-dom';
 
 const SideBar = () => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  const divStyle = {
+    padding: '9px',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: 15,
+    letterSpacing: '1px',
+    '&:hover': {
+      backgroundColor: '#fff',
+    },
+  };
   return (
     <div>
       <Sidebar
@@ -27,7 +38,7 @@ const SideBar = () => {
           },
           [`.${menuClasses.menuItemRoot}`]: {},
           [`.${menuClasses.active}`]: {
-            color: 'red ',
+            color: 'orange ',
             fontWeight: 'bold',
           },
         }}
@@ -35,13 +46,31 @@ const SideBar = () => {
         <Menu>
           <MenuItem
             active={true}
+            onClick={() => setSelectedMenu('home')}
+            component={<Link to={'/home'} />}
+          >
+            {/* {'home'} */}
+            <div
+              style={{
+                padding: '9px',
+                textTransform: 'uppercase',
+                fontWeight: 'bold',
+                fontSize: 15,
+                letterSpacing: '1px',
+              }}
+            >
+              ododok
+            </div>
+          </MenuItem>
+          <MenuItem
+            active={false}
             onClick={() => setSelectedMenu('first')}
             component={<Link to={'/first'} />}
           >
             {'first'}
           </MenuItem>
           <MenuItem
-            active={true}
+            active={false}
             onClick={() => setSelectedMenu('second')}
             component={<Link to={'/second'} />}
           >
@@ -51,14 +80,14 @@ const SideBar = () => {
           <SubMenu label="Charts">
             <Menu>
               <MenuItem
-                active={true}
+                active={false}
                 onClick={() => setSelectedMenu('sub-third')}
                 component={<Link to={'/sub-third'} />}
               >
                 {'sub-third'}
               </MenuItem>
               <MenuItem
-                active={true}
+                active={false}
                 onClick={() => setSelectedMenu('sub-fourth')}
                 component={<Link to={'/sub-fourth'} />}
               >
