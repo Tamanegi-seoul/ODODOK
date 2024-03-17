@@ -6,8 +6,10 @@ import {
   SubMenu,
   sidebarClasses,
   menuClasses,
+  useProSidebar,
 } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
+import styles from '@/styles/modules/sidebar.module.scss';
 
 const SideBar = () => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
@@ -21,8 +23,9 @@ const SideBar = () => {
       backgroundColor: '#fff',
     },
   };
+  // const { collapseSidebar } = useProSidebar();
   return (
-    <div>
+    <div className={styles.sidebar}>
       <Sidebar
         collapsed={isCollapsed}
         rootStyles={{
@@ -41,7 +44,21 @@ const SideBar = () => {
           },
         }}
       >
-        <Menu>
+        <Menu
+          menuItemStyles={{
+            button: ({ level, active, disabled }) => {
+              // only apply styles on first level elements of the tree
+              if (level === 0)
+                return {
+                  [`&.hover`]: {
+                    backgroundColor: '#fff !important',
+                  },
+                  color: disabled ? '#f5d9ff' : '#d359ff',
+                  backgroundColor: active ? '#eecef9' : undefined,
+                };
+            },
+          }}
+        >
           <MenuItem
             active={true}
             onClick={() => setSelectedMenu('home')}
@@ -55,6 +72,9 @@ const SideBar = () => {
                 fontWeight: 'bold',
                 fontSize: 15,
                 letterSpacing: '1px',
+                [`&.hover`]: {
+                  backgroundColor: '#fff',
+                },
               }}
             >
               ododok
@@ -62,17 +82,17 @@ const SideBar = () => {
           </MenuItem>
           <MenuItem
             active={false}
-            onClick={() => setSelectedMenu('first')}
-            component={<Link to={'/first'} />}
+            onClick={() => setSelectedMenu('about')}
+            component={<Link to={'/about'} />}
           >
-            {'first'}
+            {'about'}
           </MenuItem>
           <MenuItem
             active={false}
-            onClick={() => setSelectedMenu('second')}
-            component={<Link to={'/second'} />}
+            onClick={() => setSelectedMenu('write')}
+            component={<Link to={'/write'} />}
           >
-            {'second'}
+            {'write'}
           </MenuItem>
           {/* <SubMenu label="Charts" icon={<HomeOutlinedIcon />}> */}
           <SubMenu label="Charts">
