@@ -1,0 +1,13 @@
+.sidebar {
+  .ps-menuitem-root {
+    &:hover {
+      background-color: #fff;
+    }
+  }
+  .ps-menu-buton {
+    color: red;
+    &:hover {
+      background-color: #fff;
+    }
+  }
+}
