@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Recommand from '../components/Recommand';
+import Recommand from '@/components/Recommand';
 import { useEffect } from 'react';
 
 export default function Home(props: object) {

@@ -1,13 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
-import Landing from '../pages/landing';
-// import Home from '../pages/Home';
+import Landing from '@/pages/landing';
 import Home from '@/pages/Home';
-import About from '../pages/About';
-import Write from '../pages/Write';
+import About from '@/pages/About';
+import Write from '@/pages/Write';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import convert from 'xml-js';
-import MainLayout from '../components/layout/MainLayout';
+import MainLayout from '@/components/layout/MainLayout';
 
 function CommonRouter() {
   const [data, setData] = useState<any[]>([]);
@@ -16,7 +15,7 @@ function CommonRouter() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(
-        `http://data4library.kr/api/loanItemSrch?authKey=${KEY}&startDt=2024-01-01&endDt=2024-02-01`
+        `http://data4library.kr/api/loanItemSrch?authKey=${KEY}&startDt=2024-01-01&endDt=2024-02-01`,
       );
 
       // xml을 json으로 변환

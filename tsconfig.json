@@ -7,6 +7,9 @@
     // "module": "CommonJS",
     "skipLibCheck": true,
 
+    //절대경로 설정
+    "baseUrl": "src",
+
     /* Bundler mode */
     "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
@@ -21,9 +24,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    "paths": {
+      "@/*": ["*"]
+    },
     // 커스텀
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
+  // "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
