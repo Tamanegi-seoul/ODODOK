@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
-import Tabs from './TabMenu';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import Tabs from '@/components/layout/TabMenu';
 
 const ContentsLayout = () => {
   return (

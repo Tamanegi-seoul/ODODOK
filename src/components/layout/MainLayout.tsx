@@ -1,5 +1,5 @@
-import SideBar from '@/components/layout/Sidebar';
-import ContentsLayout from './ContentsLayout';
+import SideBar from '@/components/layout/SideBar';
+import ContentsLayout from '@/components/layout/ContentsLayout';
 import styles from '@/styles/modules/mainLayout.module.scss';
 
 const MainLayout = () => {
